@@ -14,13 +14,22 @@ function step_2() {
 }
 
 //STEP 3
-function step_3() {
-    "use strict";
-    var listenerButton = window.document.getElementById("listener_button");
-    listenerButton.addEventListener("click", onclick_alert);
-}
+//function step_3() {
+//    "use strict";
+//    var listenerButton = window.document.getElementById("listener_button");
+//    listenerButton.addEventListener("click", function () {
+//        window.alert("I have been clicked");
+//    });
+//}
 
 //STEP 4
+function step_4() {
+    "use strict";
+    var listenerButton = window.document.getElementById("listener_button");
+    listenerButton.addEventListener("click", function () {
+        window.alert("I have been clicked");
+    });
+}
 
 //STEP 5
 
@@ -38,5 +47,6 @@ function step_3() {
 window.addEventListener("load", function () {
     "use strict";
     step_2();
-    step_3();
+    //step_3();
+    step_4();
 });

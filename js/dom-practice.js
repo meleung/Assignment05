@@ -32,6 +32,7 @@ function step_4() {
 }
 
 //STEP 5
+// Steps 2-4 were already coded to run from the <head> tag.
 
 //STEP 6
 

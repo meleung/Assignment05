@@ -14,6 +14,11 @@ function step_2() {
 }
 
 //STEP 3
+function step_3() {
+    "use strict";
+    var listenerButton = window.document.getElementById("listener_button");
+    listenerButton.addEventListener("click", onclick_alert);
+}
 
 //STEP 4
 
@@ -33,4 +38,5 @@ function step_2() {
 window.addEventListener("load", function () {
     "use strict";
     step_2();
+    step_3();
 });

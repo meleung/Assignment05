@@ -62,11 +62,28 @@ function step_8() {
     "use strict";
     var newPageButton = window.document.getElementById("newpage_button");
     newPageButton.addEventListener("click", function () {
-        window.open("newpage.html", "NewWindowPage", "height=300,width=300");
+        window.open("newpage.html", "NewWindowPage", "width=300,height=300");
     });
 }
 
 //STEP 9
+function step_9() {
+    "use strict";
+    var startButton, stopButton, timerID = null;
+    startButton = window.document.getElementById("start_button");
+    stopButton = window.document.getElementById("stop_button");
+    startButton.addEventListener("click", function () {
+        timerID = window.setInterval(function () {
+            window.console.log("Learning JavaScript is fun!");
+        }, 2000);
+    });
+    stopButton.addEventListener("click", function () {
+        if (timerID !== null) {
+            window.clearInterval(timerID);
+            timerID = null;
+        }
+    });
+}
 
 //STEP 10
 
@@ -79,4 +96,5 @@ window.addEventListener("load", function () {
     step_6();
     step_7();
     step_8();
+    step_9();
 });

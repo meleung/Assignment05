@@ -35,8 +35,27 @@ function step_4() {
 // Steps 2-4 were already coded to run from the <head> tag.
 
 //STEP 6
+function step_6() {
+    "use strict";
+    var redirectLink = window.document.getElementById("redirect");
+    redirectLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.alert("Google link clicked!");
+    }, false);
+}
 
 //STEP 7
+function step_7() {
+    "use strict";
+    var textButton;
+    textButton = window.document.getElementById("text_button");
+    
+    textButton.addEventListener("click", function () {
+        var textField = window.document.getElementById("text_field");
+        textButton.disabled = true;
+        window.alert(textField.value);
+    });
+}
 
 //STEP 8
 
@@ -50,4 +69,6 @@ window.addEventListener("load", function () {
     step_2();
     //step_3();
     step_4();
+    step_6();
+    step_7();
 });

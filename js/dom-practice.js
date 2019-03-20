@@ -7,6 +7,11 @@ function onclick_alert() {
 }
 
 //STEP 2
+function step_2() {
+    "use strict";
+    var elementButton = window.document.getElementById("onclick_button");
+    elementButton.onclick = onclick_alert;
+}
 
 //STEP 3
 
@@ -23,3 +28,9 @@ function onclick_alert() {
 //STEP 9
 
 //STEP 10
+
+
+window.addEventListener("load", function () {
+    "use strict";
+    step_2();
+});

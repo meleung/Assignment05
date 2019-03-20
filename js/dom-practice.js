@@ -86,6 +86,15 @@ function step_9() {
 }
 
 //STEP 10
+function step_10() {
+    "use strict";
+    var dropDownMenu, dropDownButton;
+    dropDownMenu = window.document.getElementById("drop_down");
+    dropDownButton = window.document.getElementById("drop_down_button");
+    dropDownButton.addEventListener("click", function () {
+        window.alert(dropDownMenu.options[dropDownMenu.selectedIndex].innerHTML);
+    });
+}
 
 
 window.addEventListener("load", function () {
@@ -97,4 +106,5 @@ window.addEventListener("load", function () {
     step_7();
     step_8();
     step_9();
+    step_10();
 });

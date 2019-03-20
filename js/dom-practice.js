@@ -58,6 +58,13 @@ function step_7() {
 }
 
 //STEP 8
+function step_8() {
+    "use strict";
+    var newPageButton = window.document.getElementById("newpage_button");
+    newPageButton.addEventListener("click", function () {
+        window.open("newpage.html", "NewWindowPage", "height=300,width=300");
+    });
+}
 
 //STEP 9
 
@@ -71,4 +78,5 @@ window.addEventListener("load", function () {
     step_4();
     step_6();
     step_7();
+    step_8();
 });

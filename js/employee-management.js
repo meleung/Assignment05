@@ -15,6 +15,7 @@ function getEmployees() {
     "use strict";
     var employees = JSON.parse(localStorage.getItem("employees"));
     
+    /* If employees does not exist, use default values */
     if (employees === null) {
         employees = [{
             name : "Sally Smith",
@@ -132,10 +133,12 @@ function addEmployeeHandler(e) {
         return;
     }
     
+    /* Clear the input fields */
     $("name").value = "";
     $("title").value = "";
     $("extension").value = "";
     
+    /* Create the employee object to add */
     employee = {
         name : name,
         title : title,
@@ -159,10 +162,12 @@ function deleteEmployeeHandler(e) {
     employeeRow = e.target.parentElement.parentElement;
     employeeFields = employeeRow.getElementsByTagName("TD");
 
+    /* Parse the data from the table row */
     name = employeeFields[0].innerHTML;
     title = employeeFields[1].innerHTML;
     extension = parseInt(employeeFields[2].innerHTML, 10);
 
+    /* Create the employee object to delete */
     employee = {
         name: name,
         title: title,

@@ -51,6 +51,7 @@ function addEmployee(employees, employee) {
     "use strict";
 
     employees.push(employee);
+    setEmployees(employees);
 }
 
 function deleteEmployee(employees, employee) {
@@ -61,6 +62,7 @@ function deleteEmployee(employees, employee) {
         if (employees.hasOwnProperty(e)) {
             if (employees[e].name === employee.name && employees[e].title === employee.title && employees[e].extension === employee.extension) {
                 employees.splice(e, 1);
+                setEmployees(employees);
                 return true;
             }
         }
@@ -100,17 +102,44 @@ function showEmployees(employees) {
 /*** CONTROLLER ***/
 function addEmployeeHandler(e) {
     "use strict";
-    var employees, employee, name, title, extension;
+    var employees, employee, name, title, extension, error = false;
     
     e.preventDefault();
     
     name = $("name").value;
     title = $("title").value;
-    extension = parseInt($("ext").value, 10);
+    extension = parseInt($("extension").value, 10);
     
-    if (name === "" || title === "" || isNaN(extension)) {
-        window.alert("Incomplete");
+    /* Check for invalid inputs */
+    if (name === "") {
+        document.getElementById("name_error").style.visibility = "visible";
+        error = true;
+    } else {
+        document.getElementById("name_error").style.visibility = "hidden";
     }
+    
+    if (title === "") {
+        document.getElementById("title_error").style.visibility = "visible";
+        error = true;
+    } else {
+        document.getElementById("title_error").style.visibility = "hidden";
+    }
+    
+    if (isNaN(extension)) {
+        document.getElementById("extension_error").style.visibility = "visible";
+        error = true;
+    } else {
+        document.getElementById("extension_error").style.visibility = "hidden";
+    }
+    
+    if (error === true) {
+        return;
+    }
+    
+    $("name").value = "";
+    $("title").value = "";
+    $("extension").value = "";
+    
     employee = {
         name : name,
         title : title,
@@ -119,7 +148,6 @@ function addEmployeeHandler(e) {
     
     employees = getEmployees();
     addEmployee(employees, employee);
-    setEmployees(employees);
     showEmployees(employees);
 }
 
@@ -155,11 +183,11 @@ function init() {
     "use strict";
     var addButton, employeeTable, employees;
     
-    addButton = $("add_button");
-    employeeTable = $("employee_table");
-    
     employees = getEmployees();
     showEmployees(employees);
+    
+    addButton = $("add_button");
+    employeeTable = $("employee_table");
     
     addButton.addEventListener("click", addEmployeeHandler);
     employeeTable.addEventListener("click", deleteEmployeeHandler);

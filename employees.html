@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment 05 - Employee Management Application</title>
+    <link href="css/styles.css" rel="stylesheet">
     <script src="js/employee-management.js"></script>
 </head>
 <body>
     <h1>The Employee Management Application</h1>
+    <strong>Add Employee</strong><br>
     <form id="add_employee_form">
-        <strong>Add Employee</strong><br>
-        <label for="name">Name:</label><input type="text" id="name"><br>
-        <label for="title">Title:</label><input type="text" id="title"><br>
-        <label for="ext">Extension:</label><input type="text" id="ext"><br>
+        <label for="name">Name:</label><input type="text" id="name">
+        <span id="name_error" class="error_text">Please enter a name</span>
+        <label for="title">Title:</label><input type="text" id="title">
+        <span id="title_error" class="error_text">Please enter a title</span>
+        <label for="extension">Extension:</label><input type="text" id="extension">
+        <span id="extension_error" class="error_text">Please enter a valid extension</span>
+        <br>
         <button id="add_button">Add</button>
     </form>
-    <h1 id="table_title"></h1>
-    <table style="width:100%;" id="employee_table">
+    <strong id="table_title"></strong>
+    <table id="employee_table">
         <thead>
             <tr>
                 <th>Name</th>

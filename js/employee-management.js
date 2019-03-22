@@ -6,18 +6,14 @@ var $ = function (id) {
 };
 
 /*** MODEL ***/
-var gEmployees = null;
-
 function setEmployees(employees) {
     "use strict";
-    //localStorage.setItem("employees", JSON.stringify(employees));
-    gEmployees = JSON.stringify(employees);
+    localStorage.setItem("employees", JSON.stringify(employees));
 }
 
 function getEmployees() {
     "use strict";
-    //var employees = JSON.parse(localStorage.getItem("employees"));
-    var employees = JSON.parse(gEmployees);
+    var employees = JSON.parse(localStorage.getItem("employees"));
     
     if (employees === null) {
         employees = [{
@@ -41,7 +37,7 @@ function getEmployees() {
             title : "Consultant",
             extension : 3516
         }];
-        //setEmployees(employees);
+        setEmployees(employees);
     }
 
     return employees;
@@ -175,8 +171,7 @@ function deleteEmployeeHandler(e) {
 
     employees = getEmployees();
     deleteEmployee(employees, employee);
-
-    employeeRow.parentElement.removeChild(employeeRow);
+    showEmployees(employees);
 }
 
 function init() {
